@@ -1,0 +1,17 @@
+button {
+    width: 200px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: red;
+    border-radius: 20px;
+    background-color: #FFE4E1;
+}
+
+.addItem2 {
+    color: #0000CD; 
+}
+.addItem3 {
+    color: green; 
+}
+

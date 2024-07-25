@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">  <!--подключение стилей css файла -->
+</head>
+    <body>
+        <h1>Каталог товаров</h1>
+            <ul id="product-list">
+                <li>
+                    <span>Товар 1</span>
+                    <button class="addItem1" onclick="addToCart('Товар 1')">Добавить в корзину</button>
+                </li>
+                <li>
+                    <span>Товар 2</span>
+                    <button class="addItem2" onclick="addToCart('Товар 2')">Добавить в корзину</button>
+                </li>
+                <li>
+                    <span>Товар 3</span>
+                    <button class="addItem3" onclick="addToCart('Товар 3')">Добавить в корзину</button>
+                </li>
+            </ul>
+                <h1>Корзина</h1>
+                <ul class="selectItem" id="cart"></ul>
+
+        <!-- Подключение скрипта перед закрывающим тегом body -->
+        <script src="main.js"></script>
+
+        <script>
+            const addItem1Element = document.querySelector('.addItem1');
+            const addItem2Element = document.querySelector('.addItem2');
+            const addItem3Element = document.querySelector('.addItem3');
+            let productName;
+
+            addItem1Element.onclick = function() {
+                productName = 'Товар 1';
+                addToCart(productName);
+            }
+
+            addItem2Element.onclick = function() {
+                productName = 'Товар 2';
+                addToCart(productName);
+            }
+
+            addItem3Element.onclick = function() {
+                productName = 'Товар 3';
+                addToCart(productName); 
+            }
+
+        </script>
+               
+
+    </body>
+</html>
+
+
