@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>  
+<body>
+    <h1>Поиск минимального и максимального числа</h1>
+    <p class="all-elements"></p>
+    <button class="min">Найти минимальное число</button>
+    <button class="max">Найти максимальное число</button>
+    <p>Минимальное число: <span class="minNumber"></span></p>
+    <p>Максимальное число: <span class="maxNumber"></span></p>
+    <title>Document</title>
+
+    <script src="main.js"></script>
+    <script>
+            document.addEventListener('DOMContentLoaded', (event) => 
+            {
+                const array = createArrayWithRandomNumbers(); // создаём массив со случайными 10 числами от  0 до 99
+                printArray(array); // печатаем массив случайных чисел в консоль
+                showNumbersInParagraph(array); // помщаем в тег <p> массив случайных 10 чисел от  0 до 99
+                
+                let minNumber = findMinNumber(array); // находим минимальный элемент массива
+                let maxNumber = findMaxNumber(array); // находим максимальный элемент массива
+            
+                let minButton = document.querySelector('.min'); // получаем доступ к кнопке min
+                let maxButton = document.querySelector('.max'); // получаем доступ к кнопке max
+                
+                 minButton.addEventListener('click', () => showMinNumber(minNumber)); // отображаем минимальное число, при нажатии кнопки min
+                 maxButton.addEventListener('click', () => showMaxNumber(maxNumber)); // отображаем максимальное число, при нажатии кнопки max
+            })
+    </script>
+</body>
+</html>
