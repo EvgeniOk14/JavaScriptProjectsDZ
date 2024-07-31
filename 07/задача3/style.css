@@ -1,0 +1,21 @@
+.button {
+    border-radius: 20px;
+    margin: 20px 20px 0 0;
+    padding: 8px;
+    width: 200px;
+    color: white;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    font-style: italic;
+    cursor: pointer; 
+    background-color: blueviolet; 
+}
+
+.button:active {
+    color: #00FFFF;
+}
+
+.button:hover {
+    background-color: #D2691E;
+}

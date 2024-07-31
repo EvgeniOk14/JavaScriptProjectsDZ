@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="styles.css" rel = "stylesheet">
+</head>
+    <body>
+        <script src = "index.js"></script>
+
+        <script>
+            const addButtonElement = document.createElement("button"); // создали кнопку "Добавить книгу: "
+            addButtonElement.textContent = "Добавить книгу: " // добавили кнопке addButtonElement текст: "Добавить книгу: "
+            addButtonElement.classList.add("addButton"); // добавили кнопке addButtonElement класс class="addButton" кнопке 
+            document.body.append(addButtonElement); // добавили кнопку addButtonElement в тег <body>   
+
+            const searchButtonElement = document.createElement("button"); // создали кнопку "найти книгу: "
+            searchButtonElement.textContent = "найти книгу: " // добавили кнопке searchButtonElement текст: "найти книгу: "
+            searchButtonElement.classList.add("searchButton"); // добавили кнопке searchButtonElement класс class="searchButton" кнопке 
+            document.body.append(searchButtonElement); // добавили кнопку searchButtonElement в тег <body>     
+
+            /** выполняем последовательность действий: **/    
+            document.addEventListener('DOMContentLoaded', (event) => 
+            {   
+                const listOfBooks = returnList(); // присваеваем переменной listOfBooks список книг, который возвращает функция returnList()    
+                addContentToView(listOfBooks); // вызываем функцию вывода в браузер списка всех книг в теге: <ul> <li></li>...<li></li> <ul>
+            });
+
+            /** при нажатие на кнопку поиска книги: **/
+            searchButtonElement.onclick = function() 
+            {
+                const bookName = prompt("Введите название книги: "); // ввод пользователем название книги
+                searchBook(bookName); // метод поиска нужной книги и подсвечивания её красным цветом 
+            }
+
+            /** при нажатие на кнопку добавить книгу: **/
+            addButtonElement.onclick = function() 
+            {
+                addBookToList(); // метод добавленияч книги в список книг в тег <ul> <li></li>...<li></li> <ul>
+            }
+
+        </script>
+    </body>
+</html>

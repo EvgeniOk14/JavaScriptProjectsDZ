@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="content"></div>
+    <div class="header"></div>
+    <script>
+        /*const contentEl = document.querySelector(`.content`)
+        const h1El = document.createElement(`h1`)
+        const headerEl = document.createElement(`header`)
+
+        contentEl.prepend(headerEl)
+        contentEl.append(h1El)*/
+        const contentEl = document.querySelector(`.content`)
+        const h1El = document.createElement('h1')
+        const h2El = document.createElement(`h2`)
+        const pEl = document.createElement(`p`)
+        
+        contentEl.prepend(h1El)
+        contentEl.appendChild(h2El)
+        contentEl.appendChild(pEl)
+
+        /*contentEl.append(pEl)*/
+
+        /*contentEl.prepend(h1El)*/
+
+        let userName = 'Евгений'
+
+        h1El.textContent = `Добро пожаловать на сайт ${userName}`
+
+        h2El.textContent = `Сайт о путешествиях! `
+
+        pEl.textContent = `Путешествие на Бора-Бора это самый лучший отдых в мире!!!!` 
+
+    </script>
+</body>
+</html>

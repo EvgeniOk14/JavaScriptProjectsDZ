@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <script src="index.js"></script>
+
+    <script>
+
+        const findPupilWithGrowthElement = findButton(); // создали кнопку "найти ученика по его росту"
+        const addButtonElement = createButton(); // создали кнопку "добавить рост"
+        const filterButtonElement = filterButton(); // создали кнопку "отфильтровать"  
+
+        /** отобразили список с ростом в браузере **/
+        document.addEventListener('DOMContentLoaded', (event) =>
+        {
+            showListOfAge(returnList());
+        })
+
+        findPupilWithGrowthElement.onclick = function() 
+        {
+            clickOnAddButton(returnList());
+        }
+
+        addButtonElement.onclick = function() 
+        {
+             clickOnAddFindButton();
+        }
+
+        filterButtonElement.onclick = function() 
+        {
+            clickOnFilterButton() ;         
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+.addButton {
+    color: white;
+    background-color: green;
+    margin: 20px 20px 0 0;
+}
+.addButton:hover {
+    color: red;
+}
+.addButton:active {
+    color: black;
+}
+
+.searchButton {
+    color: white;
+    background-color: blue;
+    margin: 20px 20px 0 0;
+}
+
+.searchButton:hover {
+    color: red;
+}
+.searchButton:active {
+    color: black;
+}

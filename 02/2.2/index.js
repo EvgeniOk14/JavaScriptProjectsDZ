@@ -8,15 +8,19 @@
 
 let product = prompt("Введите название продукта, его цену и количество через запятую (например: Название продукта, Цена, Количество): ");
 let [productName, price, count] = product.split(", ").map(item => item.trim());
+
 price = parseFloat(price); // Преобразование цены в число с плавающей точкой
 console.log(price)
+
 console.log(count)
 count = parseInt(count); // Преобразование количества в целое число
+
 let sumCostOfProduct = price * count
 
 console.log("Продукт : ", product, " общая стоимость всех продуктов  = ", sumCostOfProduct) // Вывод в консоль
 
 alert(product, price, count, sumCostOfProduct)
+
 
 
 let product1 = prompt("Ведите название продукта 1: ")
