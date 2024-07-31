@@ -42,7 +42,7 @@
     function filterButton() 
     {
         const filterButtonElement = document.createElement("button"); // создали кнопку "фильтровать: "
-        filterButtonElement.textContent = "отвильтровать: " // добавили кнопке filterButtonElement текст: "отфильтровать: "
+        filterButtonElement.textContent = "отфильтровать: " // добавили кнопке filterButtonElement текст: "отфильтровать: "
         filterButtonElement.classList.add("button", "filterButton"); // добавили кнопке filterButtonElement класс class="filterButton" кнопке 
         document.body.append(filterButtonElement); // добавили кнопку filterButtonElement в тег <body>     
         return filterButtonElement;
@@ -182,50 +182,72 @@
 
     function clickOnFilterButton() 
     {
-        let sortGrowth = prompt("Введите критерий отбора роста в см:");
+        let flag = true;
+        while(flag)
+        {
+            let sortGrowth = prompt("Введите критерий отбора роста в см:");
     
-        if (sortGrowth) 
+            if (sortGrowth) 
             {
-            if (!isNaN(parseInt(sortGrowth))) 
+                if (!isNaN(parseInt(sortGrowth))) 
                 {
-                let growthValue = parseInt(sortGrowth);
-                if (growthValue > 20 && growthValue < 250) 
-                {
-                    const ulElement = document.querySelector('.ul-list');
-                    const liElements = ulElement.querySelectorAll('li');
-                    const newListOfGrowth = document.createElement('ul');
-                    newListOfGrowth.classList.add('ul-list');
-    
-                    for (let i = 0; i < liElements.length; i++) 
+                    let growthValue = parseInt(sortGrowth);
+                    if (growthValue > 20 && growthValue < 250) 
                     {
-                        // Извлекаем числовое значение роста из текста элемента <li>: разбивает содержимое элемента на массив двух значений по разделителю ") "
-                        let currentGrowth = parseInt(liElements[i].textContent.split(') ')[1]);
-                        
-                        // Сравниваем это значение с введенным пользователем значением
-                        if (currentGrowth > growthValue)     
-                        {
-                            const newLi = document.createElement('li');
-                            newLi.textContent = liElements[i].textContent;
-                            newListOfGrowth.appendChild(newLi);
-                        }
-                    }
+                        const ulElement = document.querySelector('.ul-list');
+                        const liElements = ulElement.querySelectorAll('li');
+                        const newListOfGrowth = document.createElement('ul');
+                        newListOfGrowth.classList.add('ul-list');
     
-                    // Заменяем старый список новым списком. Метод replaceChild удаляет ulElement из DOM и вставляет newListOfGrowth на его место.
-                    ulElement.parentNode.replaceChild(newListOfGrowth, ulElement);
+                        for (let i = 0; i < liElements.length; i++) 
+                        {
+                            // Извлекаем числовое значение роста из текста элемента <li>: разбивает содержимое элемента на массив двух значений по разделителю ") "
+                            let currentGrowth = parseInt(liElements[i].textContent.split(') ')[1]);
+                        
+                            // Сравниваем это значение с введенным пользователем значением
+                            if (currentGrowth > growthValue)     
+                            {
+                                const newLi = document.createElement('li');
+                                newLi.textContent = liElements[i].textContent;
+                                newListOfGrowth.appendChild(newLi);
+                            }
+                        }
+    
+                        // Заменяем старый список новым списком. Метод replaceChild удаляет ulElement из DOM и вставляет newListOfGrowth на его место.
+                        ulElement.parentNode.replaceChild(newListOfGrowth, ulElement);
+                        flag = false;
+                        break;
+                    }
+                    else 
+                    {
+                        alert('Введите рост в диапазоне от 20 до 250 см.');
+                        flag = true;
+                        continue;
+                    }
                 }
-                 else 
-                 {
-                    alert('Введите рост в диапазоне от 20 до 250 см.');
+                else 
+                {
+                    alert('Введите числовое значение.');
+                    flag = true;
+                    continue;
                 }
             }
-             else 
-             {
-                alert('Введите числовое значение.');
+            else 
+            {
+                alert('Вы не ввели никаких данных!');
+                let answer = prompt("Хтите выйти? (Да/Нет)").toLowerCase()
+                if (answer === "да")
+                {
+                    flag = false;
+                    break;
+                }
+                else
+                {
+                    flag = true;
+                    continue;
+                    
+                }
             }
-        }
-         else 
-         {
-            alert('Вы не ввели никаких данных!');
         }
     }
     
