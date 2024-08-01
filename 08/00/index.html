@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="index.js"></script>
+
+    <input value="Нажми меня" onclick="alert('Клик!')" type="button">
+
+    <input type="button" onclick="countRabbits()" value="Считать кроликов!">
+
+    <input type="button" id="button" value="Кнопка">
+    <script>
+        button.onclick = function() 
+        {
+        alert('Клик!');
+        };
+    </script>
+
+<input type="button" id="elem" onclick="alert('Было')" value="Нажми меня">
+<script>
+  elem.onclick = function() { // перезапишет существующий обработчик
+    alert('Станет'); // выведется только это
+  };
+</script>
+<button onclick="alert(this.innerHTML)">Нажми меня</button>
+</body>
+</html>
