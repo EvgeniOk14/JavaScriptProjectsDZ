@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- форма: -->
+    <form action="#"> 
+
+        <!-- поле ввода имени: -->
+        <label class="form_group">
+            Введите имя: 
+            <input class="input" id="name" type="text" placeholder="введите своё имя" autocomplete="on" required>
+        </label> 
+
+        <!-- поле ввода email: -->
+        <label class="form_group">
+            Введите свой email: 
+            <input class="input" id="mail" type="email" placeholder="Введите свой Email" required>
+        </label> 
+
+        <!-- поле выбора пола: -->
+        <label class="form_group">
+            <p> Выберите свой пол: </p> 
+            Мужской <input class="input" id="genderMale" type="radio" name="gender" value="Мужской" checked  required>
+            Женский <input class="input" id="genderFemale" type="radio" name="gender" value="Жеснкий" required>
+        </label> 
+
+        <label class="form_group">
+            <p>Оценка сервиса:</p>
+            <input id="serviceRange" type="range" min="0" max="5" step="1" required>
+            <p>Выставленная Оценка: <output id="value"></output></p>
+        </label>
+
+        <label class="form_group">
+            <p>Интересы пользователя:</p>
+            <div class="checkbox">
+               <p> <input type="checkbox" value="спорт" checked>спорт</p>
+               <p> <input type="checkbox" value="музыка">музыка</p>
+               <p> <input type="checkbox" value="путешествие">путешествие</p>
+               <p> <input type="checkbox" value="кино">кино</p>  
+            </div>
+        </label>
+
+        <!-- поле ввода комментарии: -->
+        <label class="form_group">
+            Дополнительные комментарии: 
+            <input class="inputcomment" id="comments" type="text" placeholder="напишите дополнительную информацию о себе" autocomplete="on" required>
+        </label> 
+
+        <!-- кнопка отправки данных с формы: -->
+        <label class="form_group"> 
+            <button class="button" type="submit">Отправить данные с формы</button>
+        </label>   
+
+    </form>
+
+
+     <!-- Элемент для вывода "Результаты опроса:" и данных пользователя -->
+     <div class="result" id="result">
+        <p>Результаты опроса:</p>
+        <p id="outputName"></p>
+        <p id="outputEmail"></p>
+        <p id="selectedGender"></p>
+        <p id="range"></p>
+        <p id="checkBoxField"></p>
+        <p id="commentsField"></p>
+    </div>
+
+    <script> 
+
+         let resultDiv = document.querySelector('#result'); // получаем тег: div class="result"
+
+         let inputName = document.querySelector('#name'); // получаем введённое имя пользователя
+         let inputEmail = document.querySelector('#mail'); // получаем введённый email пользователя
+         let selectedGenderOutput = document.querySelector('#selectedGender') // получаем пол пользователя
+        
+         let rangeOutput = document.querySelector('#range'); // получаем тег <p> сгде отображается оценка пользователя
+        
+         let serviceRange = document.querySelector('#serviceRange'); // выбор оценки пользователя
+         let valueOutput = document.querySelector('#value'); // получаем значение оценки сервиса
+          // Обработчик изменения значения ползунка
+          serviceRange.addEventListener('input', function() 
+         {
+             valueOutput.textContent = serviceRange.value; // присваеваем оценке выбранную пользователем оценку
+         });
+
+         let checkBoxField = document.querySelector('#checkBoxField'); // для вывода результатов чекбоксов
+
+         let addComments = document.querySelector('#comments'); // получаем введённыей комментарий
+         let commentsField = document.querySelector('#commentsField') // отображаем введённый комментарий в тег
+
+         let buttonEl = document.querySelector('button'); // получаем кнопку
+
+         // нажатие на кнопку button:
+         buttonEl.addEventListener('click', function(event) 
+         {
+             //event.preventDefault(); // остановка отправки формы
+
+             // Если форма не валидна, не выполнять обработку и позволить браузеру показать ошибки
+     if (!inputName.checkValidity() || !inputEmail.checkValidity() || !addComments.checkValidity()) {
+         return;
+     }
+
+             resultDiv.style.display = 'block'; // Делаем видимым элемент с результатами
+
+             outputName.textContent = `Имя: ${inputName.value}`; // получаем значение введённого имени пользователя
+
+             outputEmail.textContent = `Email: ${inputEmail.value}`; // получаем значение введённой почты email пользователя
+
+             let selectedGender = document.querySelector('input[name="gender"]:checked').value; // получаем значение выбора пола пользователя
+             selectedGenderOutput.textContent = `Пол: ${selectedGender}`; // устанавливаем значение пола пользователя тег
+             
+             rangeOutput.textContent = `Оценка сервиса: ${serviceRange.value}`; // Получаем значение ползунка
+
+             commentsField.textContent = `Дополнительные комментарии: ${addComments.value}`; // получаем комментарии
+
+             // Получение значений выбранных чекбоксов
+             let selectedCheckboxes = [];
+             document.querySelectorAll('.checkbox input[type="checkbox"]:checked').forEach(function(checkbox) {
+                 selectedCheckboxes.push(checkbox.value);
+             });
+             checkBoxField.textContent = `Интересы пользователя: ${selectedCheckboxes.join(', ')}`;
+
+             commentsField.textContent = `Дополнительные комментарии: ${addComments.value}`;
+        
+ 
+         });
+        
+    </script>
+</body>
+</html>

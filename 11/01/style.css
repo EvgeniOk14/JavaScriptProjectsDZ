@@ -1,0 +1,22 @@
+.form_group {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.button {
+    margin-top: 15px;
+    border-radius: 15px;
+    background-color: aqua;
+}
+.inputcomment {
+    height: 50px;
+    width: 500px;
+}
+
+.checkbox {
+    display: block;
+}
+
+.result {
+    display: none;
+}
