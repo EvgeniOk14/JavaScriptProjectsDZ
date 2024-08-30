@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js"></script>
+</head>
+<body>
+
+    <button class="sortAscButton">Сортировать по возрастанию</button>
+    <button class="sortDescButton">Сортировать по убыванию</button>
+
+    <script>
+
+        let array = [100, 500, 250, 750, 300];
+        
+        fillTegLi(array);
+
+        const sortAscButton = document.querySelector('.sortAscButton');
+        const sortDescButton = document.querySelector('.sortDescButton');
+
+        sortAscButton.addEventListener("click", (event) =>
+        {
+            sortArrayByOrder();
+        });
+
+        sortDescButton.addEventListener("click", (event) =>
+        {
+            sortArrayByReverseOrder();
+        });
+
+    </script>
+</body>
+</html>

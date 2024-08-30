@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class ="ulClass">
+        
+
+    </ul>
+        <button class="addButton">Добавить новый Тег</button>
+
+        <button class="deleteButton">Удалить тег</button>
+
+    <script src="index.js"></script>
+    
+<script>
+  
+    const addButton = document.querySelector('.addButton');
+    const deleteButton = document.querySelector('.deleteButton');
+    const ulElement = document.querySelector('.ulClass');
+
+    addButton.addEventListener('click', () => 
+        {
+            createNewTeg(); 
+        });
+
+        deleteButton.addEventListener('click', () =>
+    {
+        deleteTeg();
+
+    });    
+</script>
+
+</body>
+</html>
