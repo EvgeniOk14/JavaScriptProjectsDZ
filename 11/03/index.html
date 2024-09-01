@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Designer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="form-group">
+        <label for="text-input">Введите текст для карты:</label>
+        <input type="text" id="text-input" placeholder="Введите текст">
+    </div>
+
+    <div class="form-group">
+        <label >Выберите цвет фона карты:
+            <input type="color" name="colorCard" id="color-select">
+        </label>  
+    </div>
+
+    <div id="card">Ваша карта</div>
+
+    <script>
+        // Получаем элементы
+        const textInput = document.getElementById('text-input');
+        const colorSelect = document.getElementById('color-select');
+        const card = document.getElementById('card');
+
+        // Обновляем текст на карте
+        textInput.addEventListener('input', function() {
+            card.textContent = textInput.value || 'Ваша карта';
+        });
+       
+        // Изменяем цвет фона карты в зависимости от выбранного цвета
+        colorSelect.addEventListener('change', function() {
+            card.style.backgroundColor = colorSelect.value;
+        });
+    </script>
+
+</body>
+</html>
