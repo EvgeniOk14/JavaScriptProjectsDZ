@@ -1,0 +1,21 @@
+.form-group {
+    display: block;
+    margin-bottom: 20px;
+}
+
+button {
+    border-radius: 15px;
+    background-color: aquamarine;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th, td {
+    border: 1px solid #ccc;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <form action="#" class="form">
+        <label class="form-group">
+            Название товара: <input type="text" id="name" placeholder="введите имя"  required>
+        </label>
+        <label class="form-group">
+           Вес товара (кг): <input type="text" id="weight" placeholder="введите вес товара в кг" required>
+        </label>
+        <label class="form-group">
+           Расстояние доставки (км): <input type="text" id="distance" placeholder="введите расстояние доставки в км" required>
+        </label>
+        <label class="form-group">
+            <button type="submit" id="buttonEl">Добавить товар</button>
+        </label>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Название товара:</th>
+                    <th>Вес (кг):</th>
+                    <th>Расстояние (км):</th>
+                    <th>Стоимость доставки товара:</th>
+                </tr>
+                <tbody id="tableBody">
+                    <!-- tr - td-->
+                </tbody>
+            </thead>
+        </table>
+
+        <script>
+            let tableBody = document.querySelector('#tableBody');
+
+            
+
+            let formEl = document.querySelector('.form');
+
+            let nameElement = document.querySelector('#name');
+        
+            let weightElement = document.querySelector('#weight');
+           
+            let distanceElement = document.querySelector('#distance');
+
+            let buttonElement = document.querySelector('#buttonEl');
+
+            buttonElement.addEventListener("click", function(event) {
+                
+                event.preventDefault();
+
+                let newRow = document.createElement('tr');
+
+                 tdName = document.createElement('td');
+                 tdName.textContent = nameElement.value;
+
+                 tdWeight = document.createElement('td');
+                 tdWeight.textContent = weightElement.value;
+
+                 tdDistance = document.createElement('td');
+                 tdDistance.textContent = distanceElement.value;
+
+                 let tdPrice = document.createElement('td');
+                 tdPrice.textContent = weightElement.value * distanceElement.value / 10;
+
+                 newRow.appendChild(tdName);
+                 newRow.appendChild(tdWeight);
+                 newRow.appendChild(tdDistance);
+                 newRow.appendChild(tdPrice);
+
+                 tableBody.appendChild(newRow);
+                
+                formEl.reset();
+            });
+
+            
+        </script>
+</body>
+</html>
