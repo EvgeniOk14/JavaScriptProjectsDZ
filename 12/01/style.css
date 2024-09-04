@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    align-items: center; /* Центрируем элементы по горизонтали */
+    justify-content: center; /* Центрируем элементы по вертикали */
+    margin: 100px auto;
+    gap: 10px;
+    width: 300px;
+    height: 150px;
+    border-radius: 15px;
+    background-color: aquamarine;
+    border: 1px solid black;
+    padding: 10px;
+    visibility: hidden;
+}
+
+.container-block__text, .container-block__button {
+    width: 100%; /* Ширина 100% от родительского блока */
+    box-sizing: border-box; /* Учитываем padding и border в ширине */
+}
+
+.container-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container-block__text {
+    display: block;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.container-block__button {
+    display: block;
+    justify-content: flex-end;
+    text-align: right;
+
+}
+
+.button {
+    border-radius: 15px;
+    background-color: rgb(252, 253, 245);;
+    border: 1px solid black;
+}
+
+.gift {
+    display: block;
+    object-fit: cover;
+    width: 100px;
+    height: auto;
+}

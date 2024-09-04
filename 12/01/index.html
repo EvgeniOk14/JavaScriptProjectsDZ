@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="container-img">
+            <img class="gift" src="img/подарок.png" alt="фото подарка" id="gift-img">
+        </div>
+        <div class="container-block">
+            <div>
+                <p class="container-block__text" id="gift-title">Подарок при первой покупки в нашем магазине!</p>
+            </div>
+            <div class="container-block__button">
+                <button class="button" id="close-button">Отлично</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Запуск функции с задержкой 3 секунды после загрузки страницы
+        document.addEventListener('DOMContentLoaded', () => 
+        {
+            setTimeout(() => {showCommercial()}, 3000); // Задержка 3 секунды
+        });
+    </script>
+</body>
+</html>

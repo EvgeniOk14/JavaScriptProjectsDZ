@@ -1,0 +1,58 @@
+<!-- вариант без использования куков -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="block-form">
+       <form action="#" class="form">
+            <div class="block-form__input">
+                <label>
+                    <input class="input" type="text" placeholder="введите промокод" required>
+                </label>
+               
+                <label class="block-form__button">
+                    <button class="button" type="submit">Применить</button>
+                </label>
+            </div>
+            <div class="block-form__text">
+                <p class="block-form_text"></p>
+            </div>
+       </form>
+    </div>
+
+    <script>
+
+        const promocodeObj = 
+        {
+            promocode: "PROM50",
+            gift: "Скидка 50%"
+        }
+
+        let formElement = document.querySelector('.form');
+        let buttonElement = document.querySelector('.button');
+        let inputElement = document.querySelector('.input');
+        let textElement = document.querySelector('.block-form_text');
+
+        buttonElement.addEventListener('click', function(e)
+        {
+            if (inputElement.value === promocodeObj.promocode)
+            {   
+                e.preventDefault();
+                textElement.textContent = `Промокод применён.  ${promocodeObj.gift}`;
+            }
+            else
+            {
+                e.preventDefault();
+                textElement.textContent = "";   
+            }
+            formElement.reset();
+            
+        });
+    </script>
+</body>
+</html>

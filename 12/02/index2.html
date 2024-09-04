@@ -1,0 +1,84 @@
+<!-- вариант без сброса промокода при неправильно введённом повторном вводе -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="block-form">
+       <form action="#" class="form">
+            <div class="block-form__input">
+                <label>
+                    <input class="input" type="text" placeholder="введите промокод" required>
+                </label>
+               
+                <label class="block-form__button">
+                    <button class="button" type="submit">Применить</button>
+                </label>
+            </div>
+            <div class="block-form__text">
+                <p class="block-form_text"></p>
+            </div>
+       </form>
+    </div>
+
+    <script>
+        const promocodeObj = {
+            promocode: "PROM50",
+            gift: "Скидка 50%"
+        }
+
+        let formElement = document.querySelector('.form');
+        let buttonElement = document.querySelector('.button');
+        let inputElement = document.querySelector('.input');
+        let textElement = document.querySelector('.block-form_text');
+
+        // Вспомогательная функция для получения данных из куки
+        function getCookie() {
+            return document.cookie.split('; ').reduce((acc, item) => {
+                const [name, value] = item.split('=')
+                acc[name] = value
+                return acc
+            }, {})
+        }
+
+        // Функция для установки куки
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        // Проверка при загрузке страницы, если промокод уже сохранён в куки
+        window.addEventListener('load', function() {
+            const cookie = getCookie();
+            if (cookie.promocode && cookie.promocode === promocodeObj.promocode) {
+                textElement.textContent = `Промокод уже был применён. ${promocodeObj.gift}`;
+                textElement.style.visibility = 'visible';
+            }
+        });
+
+        buttonElement.addEventListener('click', function(e) {
+            e.preventDefault(); // Предотвращаем отправку формы
+
+            if (inputElement.value === promocodeObj.promocode) {
+                textElement.textContent = `Промокод применён. ${promocodeObj.gift}`;
+                textElement.style.visibility = 'visible';
+                setCookie('promocode', promocodeObj.promocode, 7); // Сохраняем промокод в куки на 7 дней
+            } else {
+                textElement.textContent = "";   
+            }
+
+            formElement.reset(); // Очищаем форму после обработки
+        });
+    </script>
+
+</body>
+</html>
