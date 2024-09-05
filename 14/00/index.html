@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тема сайта</title>
+    <style>
+        /* Дневная тема (по умолчанию) */
+        body.light-theme {
+            background-color: white;
+            color: black;
+        }
+
+        /* Ночная тема */
+        body.dark-theme {
+            background-color: black;
+            color: white;
+        }
+
+        .theme-toggle-btn {
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Переключение темы сайта</h1>
+    <button class="theme-toggle-btn">Переключить тему</button>
+
+    <script>
+        // Функция для установки темы
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                document.body.className = 'dark-theme';
+            } else {
+                document.body.className = 'light-theme';
+            }
+            localStorage.setItem('theme', theme); // Сохранение темы в LocalStorage
+        }
+
+        // Функция для переключения темы
+        function toggleTheme() {
+            const currentTheme = localStorage.getItem('theme') || 'light'; // Получение текущей темы (по умолчанию дневная)
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light'; // Переключение на противоположную
+            setTheme(newTheme); // Установка новой темы
+        }
+
+        // Получаем сохранённую тему при загрузке страницы
+        const savedTheme = localStorage.getItem('theme') || 'light'; // По умолчанию светлая тема
+        setTheme(savedTheme); // Устанавливаем сохранённую тему
+
+        // Обработка клика по кнопке для смены темы
+        document.querySelector('.theme-toggle-btn').addEventListener('click', toggleTheme);
+    </script>
+</body>
+</html>

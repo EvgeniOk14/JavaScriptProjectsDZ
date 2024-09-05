@@ -101,9 +101,9 @@
              //event.preventDefault(); // остановка отправки формы
 
              // Если форма не валидна, не выполнять обработку и позволить браузеру показать ошибки
-     if (!inputName.checkValidity() || !inputEmail.checkValidity() || !addComments.checkValidity()) {
-         return;
-     }
+            if (!inputName.checkValidity() || !inputEmail.checkValidity() || !addComments.checkValidity()) {
+            return;
+        }
 
              resultDiv.style.display = 'block'; // Делаем видимым элемент с результатами
 
