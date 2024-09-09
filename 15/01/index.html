@@ -1,0 +1,60 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <form id="film-form">
+        <label for="title">Название:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="genre">Жанр:</label><br>
+        <input type="text" id="genre" name="genre"><br>
+        <label for="releaseYear">Год:</label><br>
+        <input type="text" id="releaseYear" name="releaseYear"><br>
+        <input type="checkbox" id="isWatched" name="isWatched">
+        <label for="isWatched">Успели посмотреть?</label><br>
+        <input type="submit" value="Submit">
+    </form>
+    <table id="film-table">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Жанр</th>
+                <th>Год</th>
+                <th>Успели посмотреть?</th>
+                <th>Действие</th>
+            </tr>
+        </thead>
+
+        <div class="filter">
+            <div class="filter-content">
+                <label for="filter-title">Фильтр по названию:</label>
+                <input type="text" id="filter-title">
+                <label for="filter-genre">Фильтр по жанру:</label>
+                <input type="text" id="filter-genre">
+        
+                <label for="filter-year">Фильтр по году:</label>
+                <input type="text" id="filter-year">
+        
+                <label for="filter-watched">Фильтр по статусу:</label>
+                <select id="filter-watched">
+                    <option value="all">Все</option>
+                    <option value="watched">Просмотренные</option>
+                    <option value="not-watched">Не просмотренные</option>
+                </select>
+            </div>
+            <div class="filter-button">
+                <button id="delete-all-btn">Удалить все фильмы</button>
+            </div>
+        </div>
+
+        <tbody id="film-tbody">
+            <!-- Rows will be inserted here -->
+        </tbody>
+    </table>
+    
+
+    
+
+</body>
+</html>
