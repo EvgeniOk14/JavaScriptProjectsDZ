@@ -1,0 +1,218 @@
+.div-container {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    width: 1000px;
+    height: auto;
+    padding: 20px;
+    justify-content: space-between; /* Отправляем содержимое на равные отступы */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Лёгкая тень для объёма */
+    background-color: #FAEBD7; 
+    margin: auto; /* Центрирование по горизонтали */
+
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); Центрирование по вертикали */
+}
+
+.div-class__text {
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: #8B4513;
+}
+
+
+.div-container__text {
+margin-bottom: 20px;
+}
+/* Отступы между элементами формы */
+.div-container__input {
+    margin-bottom: 20px; /* Отступы между блоками ввода */
+    padding: 10px;
+}
+
+.div-container__button {
+    margin-bottom: 20px;
+}
+
+.div-container__name {
+    margin-bottom: 10px;
+}
+.div-container__desk {
+    margin-bottom: 10px;
+}
+.div-container__weight {
+    margin-bottom: 10px;
+}
+
+.div-container__time {
+    margin-bottom: 10px;
+}
+
+/* Контейнер для кнопки с отступом от нижнего края */
+.div-container__button {
+    margin-top: 20px;
+    margin-bottom: 20px; /* Отступ снизу */
+    width: 100%; /* Чтобы кнопка растягивалась по ширине контейнера */
+    display: flex;
+    justify-content: center; /* Выравнивание кнопки по центру */
+    
+}
+
+.div-container__button-button {
+    padding: 10px 20px; /* Внутренний отступ у кнопки */
+    border: none;
+    background-color: #007bff; /* Цвет кнопки */
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.div-container__button-button:hover {
+    background-color: #0056b3; /* Цвет при наведении */
+}
+
+/* Стили для полей формы */
+.form-input__name, .form-input__desk, .form-input__weight, .form-input__time {
+    width: 100%; /* Ширина полей ввода */
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Учитывать внутренние отступы и границу в ширине */
+}
+
+
+
+/* Цвета и шрифты: Смена цветовой гаммы, фоновый цвет, границы и шрифты для различных частей календаря. */
+.flatpickr-calendar {
+    background-color: #f8f9fa; /* Светло-серый фон */
+    border: 1px solid #ced4da; /* Окружение с мягкими границами */
+    border-radius: 8px; /* Закругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень */
+}
+
+.flatpickr-day {
+    color: #495057; /* Цвет текста */
+    border-radius: 50%; /* Круглые дни */
+    transition: background-color 0.2s ease;
+}
+
+.flatpickr-day:hover {
+    background-color: #007bff; /* Синий цвет при наведении */
+    color: #fff; /* Белый текст */
+}
+
+.flatpickr-day.today {
+    background-color: #28a745; /* Зеленый цвет для текущего дня */
+    color: #fff;
+}
+
+
+/*Добавляем аннимации:*/
+.flatpickr-time {
+    background-color: #ffffff; /* Белый фон для времени */
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.flatpickr-calendar {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.flatpickr-calendar.open {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* стилизация ввода inputTime */
+.form-input__time {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    width: 30%;
+    font-size: 16px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+.error {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+
+/*стили загрузчика*/
+
+.loader,
+.loader div {
+  box-sizing: border-box;
+}
+
+.loader-container {
+  position: fixed; /* Фиксируем позицию относительно окна */
+  top: 50%; /* По вертикали 50% от верха */
+  left: 50%; /* По горизонтали 50% от левого края */
+  transform: translate(-50%, -50%); /* Смещаем на половину ширины и высоты, чтобы точно по центру */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw; /* Занимаем всю ширину экрана */
+  height: 100vh; /* Занимаем всю высоту экрана */
+}
+
+.loader {
+  display: inline-block;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: calc(50% - 40px);
+  top: calc(50% - 40px);
+}
+
+.loader div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  margin: 8px;
+  border: 8px solid currentColor;
+  border-radius: 50%;
+  animation: loaderg 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: currentColor transparent transparent transparent;
+
+}
+
+.loader div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.loader div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.loader div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes loaderg {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
