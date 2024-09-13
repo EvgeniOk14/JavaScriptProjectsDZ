@@ -1,0 +1,16 @@
+#progress-bar {
+    width: 0;
+    height: 20px;
+    background-color: #4caf50;
+    transition: width linear;
+  }
+  .progress-container {
+    width: 500px;
+    height: 20px;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+  }
+  #time-elapsed {
+    margin-top: 10px;
+    font-size: 16px;
+  }
