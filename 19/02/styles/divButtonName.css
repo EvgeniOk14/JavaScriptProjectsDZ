@@ -1,0 +1,22 @@
+.div-buttonAndNameDiv {
+    display: flex; /* Используем flexbox */
+    align-items: center; /* Выравнивание по вертикали по центру */
+    width: 100%; /* Контейнер занимает всю доступную ширину */
+}
+
+.div-edit-name {
+    display: flex;
+    justify-content: right;
+    flex: 1; /* Имя занимает всё доступное пространство */
+    padding: 0 10px 0 0;
+} 
+
+.div-edit-button {
+    margin-left: auto;
+}
+
+.edit-btn {
+    border-radius: 15px;
+    padding: 10px;
+    background-color: aquamarine;
+}

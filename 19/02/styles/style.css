@@ -1,0 +1,17 @@
+/* Подключаем дополнительные файлы стилей */
+@import url('card.css');
+@import url('divButtonName.css');
+@import url('modal.css'); 
+
+
+
+
+/* Ваши собственные стили */
+body {
+    font-family: Arial, sans-serif;
+    color: blueviolet;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
